@@ -1,0 +1,49 @@
+﻿using System;
+
+namespace ejerciciosSemana2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            //Desarollar un metodo dentro de un programa c# que reciba un numero entro
+            //por parametro y devuelva un valor booleano que indique si se trata de un numero
+            //primo o no.
+
+            Console.WriteLine("Veamos si es numero primo o no");
+            Console.WriteLine("Digita un numero entero: ");
+            int numero = int.Parse(Console.ReadLine());
+
+            bool esPrimo = EsNumeroPrimo(numero);
+            if (esPrimo)
+            {
+                Console.WriteLine($"El numero {numero} es primo");
+            }
+            else
+            {
+                Console.WriteLine($"el numero {numero} no es primo");
+            }
+
+            //no cerrar la consola
+            Console.ReadLine();
+        }
+
+        static bool EsNumeroPrimo(int num)
+        {
+            if (num <= 1)
+            {
+                return false;
+            }
+            for (int i = 2; i <= Math.Sqrt(num); i++)
+            {
+                if (num % i == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+    }
+}
